@@ -22,10 +22,16 @@ urlpatterns = [
     url(r'^signup/', signup, name='signup'),
     url(r'^login/', login, name='login'),
     url(r'^logout/', logout, name='logout'),
+    url(r'^user-info/', get_user_info, name='userInfo'),
     url(r'^new-trip/', add_trip, name='newTrip'),
-    url(r'^new-participant/', add_participant, name='newParticipant'),
+    url(r'^add-participant/(?P<pk>\d+)$', add_participant, name='addParticipant'),
     url(r'^check-participant/', check_participant, name='checkParticipant'),
     url(r'^user-all-trips/', get_user_trips, name='userAllTrips'),
-    url(r'^new-transaction/', add_transaction, name='newTransaction'),
+    url(r'^trip-info/(?P<pk>\d+)$', get_trip_info, name='tripInfo'),
+    url(r'^trip-participants/(?P<pk>\d+)$', get_trip_participant, name='tripParticipants'),
+    url(r'^trip-transactions/(?P<pk>\d+)$', get_trip_transactions, name='tripTransactions'),
+    url(r'^edit-trip-info/(?P<pk>\d+)$', edit_trip_info, name='editTripInfo'),
+    url(r'^add-transaction/', add_transaction, name='newTransaction'),
+    url(r'^calculate-dong/(?P<pk>\d+)$', calculate_dong, name='calculateDong'),
 
 ]

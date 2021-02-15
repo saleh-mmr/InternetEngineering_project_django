@@ -1,3 +1,4 @@
+from abc import ABC
 from datetime import date
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -43,6 +44,9 @@ class Transaction(models.Model):
 class Table(models.Model):
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title
 
 
 class Bedehkar(models.Model):
